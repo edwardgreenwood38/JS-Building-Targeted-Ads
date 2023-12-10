@@ -3,6 +3,12 @@
 
 
 // get user's time
+// Get the user's time:                                                              
+function userTime(){
+    const now = new Date()
+    return now.getHours()                                                   
+}
+console.log(userTime());
 
 
 // helper functions
