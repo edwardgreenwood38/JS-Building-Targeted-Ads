@@ -8,7 +8,7 @@ async function getCoords(){
     return [pos.coords.latitude, pos.coords.longitude]
 }
 
-console.log(getCoords());                              
+//console.log(getCoords());                              
 
 
 
@@ -19,7 +19,7 @@ function userTime(){
     const now = new Date()
     return now.getHours()                                                   
 }
-console.log(userTime());
+//console.log(userTime());
 
 
 // helper functions
@@ -38,7 +38,7 @@ function getMealTime(){
     // return tod > 20 ? 'late-night snack' : tod > 16 ? 'dinner' : tod > 11 ? 'lunch' : 'breakfast' // <--- this is an example of a ternary
 }
     
-  console.log(getMealTime())                   
+  //console.log(getMealTime())                   
 
 
 
@@ -52,7 +52,7 @@ function buildAd1(){
     inner.innerHTML = `We've got the best <span>${mealTime}</span> in town`
     content.append(inner)
 }
-buildAd1()
+
 
 
 // build ad 2
@@ -65,9 +65,14 @@ function buildAd2(coordinates){
     content.append(inner)
 }
 
-console.log(buildAd2(getCoords()))
+//console.log(buildAd2(getCoords()))
 
 
 
 // event listeners
 // on load, build ads
+window.onload = async() => {
+    buildAd1();
+    const coords = await getCoords();
+    buildAd2(coords);
+}
